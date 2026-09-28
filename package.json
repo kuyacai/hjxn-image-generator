@@ -5,7 +5,7 @@
   "description": "将 HTML 卡片批量导出为 800x800 图片",
   "type": "commonjs",
   "scripts": {
-    "shot": "node shot.js input.html output card 800 800"
+    "shot": "node shot.js"
   },
   "dependencies": {
     "puppeteer": "^25.0.0"

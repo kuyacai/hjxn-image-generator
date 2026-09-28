@@ -18,8 +18,7 @@ body{
      font-size:32px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none;}
 .tt{font-size:44px;font-weight:800;letter-spacing:2px;}
 .pg{margin-left:auto;font-size:26px;font-weight:700;opacity:.9;}
-.bd{flex:1;padding:28px 36px;display:flex;flex-direction:column;justify-content:space-between;}
-
+.bd{flex:1;padding:28px 36px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;}
 .lbl{font-size:28px;font-weight:800;color:var(--grey);letter-spacing:2px;}
 .it{font-size:32px;font-weight:700;line-height:1.3;}
 .it b{color:var(--green-d);font-weight:900;}
