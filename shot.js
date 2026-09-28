@@ -1,37 +1,34 @@
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');   // 注意是 puppeteer-core
 const path = require('path');
 const fs = require('fs');
 const { pathToFileURL } = require('url');
 
-// 可命令行传参：node shot.js input.html output card 800 800
 const INPUT_HTML = process.argv[2] || 'input.html';
 const OUT_DIR    = process.argv[3] || 'output';
 const PREFIX     = process.argv[4] || 'card';
 const W          = parseInt(process.argv[5] || '800', 10);
 const H          = parseInt(process.argv[6] || '800', 10);
 
+const CHROME_PATH = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+
 (async () => {
   if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR, { recursive: true });
 
-  const browser = await puppeteer.launch({ headless: 'new' });
-  const page = await browser.newPage();
-
-  // 视口略大于卡片，防止滚动条影响；deviceScaleFactor=1 保证 1:1 像素
-  await page.setViewport({
-    width: W + 200,
-    height: H + 200,
-    deviceScaleFactor: 1
+  const browser = await puppeteer.launch({
+    headless: 'new',
+    executablePath: CHROME_PATH
   });
+
+  const page = await browser.newPage();
+  await page.setViewport({ width: W + 200, height: H + 200, deviceScaleFactor: 1 });
 
   const fileUrl = pathToFileURL(path.resolve(INPUT_HTML)).href;
   await page.goto(fileUrl, { waitUntil: 'networkidle0' });
-
-  // 等字体加载完
   await page.evaluate(() => document.fonts.ready);
 
   const cards = await page.$$('.card');
   if (!cards.length) {
-    console.error('没有找到 .card 元素，请检查 HTML。');
+    console.error('没有找到 .card 元素，请检查 input.html。');
     await browser.close();
     return;
   }
