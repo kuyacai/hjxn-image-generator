@@ -1,0 +1,47 @@
+/* ===== 电商首图专用 ===== */
+.card.poster{
+  width:800px;height:800px;background:#FFFFFF;display:flex;flex-direction:column;
+  overflow:hidden;color:#1A2B20;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC",sans-serif;
+}
+
+/* 顶部标题区 */
+.pt-hd{
+  flex:none;padding:28px 40px 16px;
+  background:linear-gradient(180deg,#E9F5EC 0%,#FFFFFF 100%);
+}
+.pt-hd .brand{font-size:26px;font-weight:700;color:#4A5D50;letter-spacing:2px;}
+.pt-hd .t{font-size:52px;font-weight:900;color:#14572A;line-height:1.15;margin-top:6px;letter-spacing:1px;}
+.pt-hd .s{font-size:30px;font-weight:700;color:#4A5D50;margin-top:8px;}
+
+/* 产品区：1～4 个自动排列 */
+.pt-body{
+  flex:1;display:flex;flex-wrap:wrap;align-content:center;justify-content:center;
+  gap:24px;padding:10px 36px;
+}
+.pt-item{display:flex;align-items:center;justify-content:center;}
+.pt-item img{max-width:100%;max-height:100%;object-fit:contain;}
+
+.pt-item.one  {width:420px;height:340px;}
+.pt-item.two  {width:320px;height:300px;}
+.pt-item.three{width:220px;height:240px;}
+.pt-item.four {width:200px;height:220px;}
+
+/* 卖点区 */
+.pt-points{
+  flex:none;padding:0 40px;display:flex;flex-direction:column;gap:10px;
+}
+.pt-points .p{
+  font-size:32px;font-weight:800;color:#1A2B20;line-height:1.25;
+  display:flex;align-items:flex-start;gap:10px;
+}
+.pt-points .p::before{
+  content:"✅";font-size:28px;flex:none;line-height:1.3;
+}
+
+/* 底部规格条（无价格，单列） */
+.pt-ft{
+  flex:none;margin-top:16px;background:#1E7A3C;color:#fff;
+  padding:20px 40px;display:flex;flex-direction:column;gap:8px;
+}
+.pt-ft .spec{font-size:26px;font-weight:700;line-height:1.45;}
