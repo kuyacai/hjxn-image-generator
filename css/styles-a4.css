@@ -14,7 +14,7 @@
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;background:#fff;}
 body{
-  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC",sans-serif;
+  font-family:"Source Han Sans CN","Source Han Sans SC","Noto Sans SC","Noto Sans CJK SC",sans-serif;
   color:var(--ink);
   -webkit-print-color-adjust:exact;
   print-color-adjust:exact;

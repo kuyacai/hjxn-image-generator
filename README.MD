@@ -16,4 +16,10 @@
 node shot.js input.html output card 800 800
 ```
 
+或
+
+```bash
+
+```
+
 5. output/ 里就是 800×800 图片，风格与之前完全一致。

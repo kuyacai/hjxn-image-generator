@@ -2,7 +2,7 @@
 .card.poster{
   width:800px;height:800px;background:#FFFFFF;display:flex;flex-direction:column;
   overflow:hidden;color:#1A2B20;
-  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC",sans-serif;
+  font-family:"Source Han Sans CN","Source Han Sans SC","Noto Sans SC","Noto Sans CJK SC",sans-serif;
 }
 
 /* 顶部标题区 */

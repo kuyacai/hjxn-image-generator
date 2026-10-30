@@ -5,7 +5,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
   background:#C9D4C4;
-  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC","Noto Sans CJK SC",sans-serif;
+  font-family:"Source Han Sans CN","Source Han Sans SC","Noto Sans SC","Noto Sans CJK SC",sans-serif;
   -webkit-font-smoothing:antialiased;
   display:flex;flex-wrap:wrap;gap:30px;justify-content:center;padding:30px;
 }

@@ -1,0 +1,75 @@
+/* ============================================================
+   二维码工卡内页 · A4 竖向打印
+   一页 9 张：3 列 × 3 行，单张 54×85mm（竖版工卡内页）
+   结构：.qr-sheet > .qr-cell(×N) > .qr-code + .qr-cap
+   打印：A4 / 页边距 0 / 缩放 100% / 背景图形开启
+   ============================================================ */
+
+@page{ size:A4 portrait; margin:0; }
+
+*{ box-sizing:border-box; }
+
+html,body{
+  margin:0;padding:0;
+  background:#fff;
+  font-family:"Source Han Sans CN","Source Han Sans SC","Noto Sans SC","Noto Sans CJK SC",sans-serif;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+
+/* ===== A4 纸面：绝对物理尺寸，保证打印 1mm = 1mm ===== */
+.qr-sheet{
+  position:relative;
+  width:210mm;height:297mm;
+  margin:0 auto;
+  background:#fff;
+  display:grid;
+  grid-template-columns:repeat(3,54mm);
+  grid-template-rows:repeat(3,85mm);
+  gap:6mm;
+  justify-content:center;   /* 横向剩余 210-174=36mm，两侧各 18mm */
+  align-content:center;     /* 纵向剩余 297-267=30mm，上下各 15mm */
+  overflow:hidden;
+}
+
+/* ===== 单张工卡内页 ===== */
+.qr-cell{
+  position:relative;
+  width:54mm;height:85mm;
+  background:#fff;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  break-inside:avoid;
+}
+
+/* 裁剪虚线：沿虚线下刀 */
+.qr-cell::after{
+  content:"";
+  position:absolute;inset:0;
+  border:.25pt dashed #C9CFD9;
+  pointer-events:none;
+}
+
+/* 二维码：46mm 见方，两侧各留 4mm 静区 */
+.qr-code{
+  width:46mm;height:46mm;
+  display:block;
+}
+
+/* 说明文字：二维码正下方，居中 */
+.qr-cap{
+  margin-top:4mm;
+  font-size:11pt;
+  font-weight:700;
+  line-height:1.2;
+  letter-spacing:.3pt;
+  color:#111;
+  text-align:center;
+  white-space:nowrap;
+}
+
+/* ===== 屏幕预览（不影响打印）===== */
+@media screen{
+  body{padding:24px 0;background:#F2F4F7;}
+  .qr-sheet{box-shadow:0 4px 24px rgba(0,0,0,.12);}
+}
